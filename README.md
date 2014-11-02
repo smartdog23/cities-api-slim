@@ -1,2 +1,2 @@
-city-slim-php-api
-=================
+cities API - PHP - Slim Framework
+=================================
