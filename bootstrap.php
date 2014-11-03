@@ -15,6 +15,10 @@ define('APP_SRC', PROJECT_ROOT.DS.'src'.DS);
 
 $app = new \Slim\Slim();
 
+$app->container->singleton('db', function () {
+    return new PDO('mysql:host=localhost;dbname=cities_api;charset=utf8', 'cities_api', 'cities_api') or exit('error');
+});
+
 include_once APP_SRC.'routes.php';
 
 $app->run();
