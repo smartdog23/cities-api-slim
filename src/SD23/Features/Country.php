@@ -14,10 +14,16 @@ class Country {
 
     }
 
+//    public static function countryList() {
+//        $app = \Slim\Slim::getInstance();
+//        $query = "select * from country";
+//        return json_encode($result = $app->db->query($query)->fetchAll(\PDO::FETCH_ASSOC));
+//    }
+
     public static function countryList() {
         $app = \Slim\Slim::getInstance();
-        $query = "select * from country";
-        return json_encode($result = $app->db->query($query)->fetchAll(\PDO::FETCH_ASSOC));
+        $countries = $app->db->country->fetchAll();
+        return json_encode($countries);
     }
 
     public function countryInfo() {

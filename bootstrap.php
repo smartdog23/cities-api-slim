@@ -21,7 +21,8 @@ $app = new \Slim\Slim(array());
 $app->response()->header('Content-Type', 'application/json');
 
 $app->container->singleton('db', function () {
-    return new PDO('mysql:host=localhost;dbname=cities_api;charset=utf8', 'cities_api', 'cities_api');
+//    return = new PDO('mysql:host=localhost;dbname=cities_api;charset=utf8', 'cities_api', 'cities_api');
+    return new \Respect\Relational\Mapper(new PDO('mysql:host=localhost;dbname=cities_api;charset=utf8', 'cities_api', 'cities_api'));
 });
 
 include_once APP_SRC.'routes.php';
