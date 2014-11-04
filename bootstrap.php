@@ -9,14 +9,19 @@
 # autoload
 include_once 'vendor/autoload.php';
 
+//error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+//ini_set('display_errors','On');
+
 define('DS', DIRECTORY_SEPARATOR);
 define('PROJECT_ROOT', __DIR__);
 define('APP_SRC', PROJECT_ROOT.DS.'src'.DS);
 
-$app = new \Slim\Slim();
+$app = new \Slim\Slim(array());
+
+$app->response()->header('Content-Type', 'application/json');
 
 $app->container->singleton('db', function () {
-    return new PDO('mysql:host=localhost;dbname=cities_api;charset=utf8', 'cities_api', 'cities_api') or exit('error');
+    return new PDO('mysql:host=localhost;dbname=cities_api;charset=utf8', 'cities_api', 'cities_api');
 });
 
 include_once APP_SRC.'routes.php';

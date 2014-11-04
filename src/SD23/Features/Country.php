@@ -14,6 +14,18 @@ class Country {
 
     }
 
+    public static function countryList() {
+        $app = \Slim\Slim::getInstance();
+        $query = "select * from country";
+        return json_encode($result = $app->db->query($query)->fetchAll(\PDO::FETCH_ASSOC));
+    }
 
+    public function countryInfo() {
+
+    }
+
+    public function stateList() {
+
+    }
 
 }
