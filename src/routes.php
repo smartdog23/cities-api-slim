@@ -8,7 +8,9 @@ $app->get('/', function () {
 $app->get('/country', function () {
     echo \SD23\Features\Country::countryList();
 });
-$app->get('/country/:id', function ($id) {});
+$app->get('/country/:id', function ($id) {
+    echo \SD23\Features\Country::countryInfo($id);
+});
 $app->get('/country/:id/state', function ($id) {});
 
 $app->get('/state', function () {});

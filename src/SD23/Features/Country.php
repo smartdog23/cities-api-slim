@@ -22,16 +22,18 @@ class Country {
 
     public static function countryList() {
         $app = \Slim\Slim::getInstance();
-        $countries = $app->db->country->fetchAll();
-        return json_encode($countries);
+        $countryList = $app->db->country->fetchAll();
+        return json_encode($countryList);
     }
 
-    public function countryInfo() {
-
+    public static function countryInfo($id) {
+        $app = \Slim\Slim::getInstance();
+        $country = $app->db->country[$id]->fetch();
+        return json_encode($country);
     }
 
-    public function stateList() {
-
+    public static function stateList() {
+//        $mapper->author(array("name"=>"Alexandre"))->fetch();
     }
 
 }
