@@ -11,7 +11,9 @@ $app->get('/country', function () {
 $app->get('/country/:id', function ($id) {
     echo \SD23\Features\Country::countryInfo($id);
 });
-$app->get('/country/:id/state', function ($id) {});
+$app->get('/country/:id/state', function ($id) {
+    echo \SD23\Features\Country::stateList($id);
+});
 
 $app->get('/state', function () {});
 $app->get('/state/:id', function ($id) {});

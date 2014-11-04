@@ -32,8 +32,10 @@ class Country {
         return json_encode($country);
     }
 
-    public static function stateList() {
-//        $mapper->author(array("name"=>"Alexandre"))->fetch();
+    public static function stateList($id) {
+        $app = \Slim\Slim::getInstance();
+        $stateList = $app->db->state(array("country_id" => $id))->fetchAll();
+        return json_encode($stateList);
     }
 
 }
