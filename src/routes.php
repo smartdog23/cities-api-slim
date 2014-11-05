@@ -25,5 +25,9 @@ $app->get('/state/:id/city', function ($id) {
     echo \SD23\Features\State::cityList($id);
 });
 
-$app->get('/city', function () {});
-$app->get('/city/:id', function ($id) {});
+$app->get('/city', function () {
+    echo \SD23\Features\City::city();
+});
+$app->get('/city/:id', function ($id) {
+    echo \SD23\Features\City::cityInfo($id);
+});

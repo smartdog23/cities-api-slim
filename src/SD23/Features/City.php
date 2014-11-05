@@ -15,5 +15,14 @@ class City {
     }
 
 
+    public static function city() {
+        return json_encode(array('status' => 'error'));
+    }
+
+    public static function cityInfo($id) {
+        $app = \Slim\Slim::getInstance();
+        $city = $app->db->city[$id]->fetch();
+        return json_encode($city);
+    }
 
 }
